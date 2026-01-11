@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    # 这里的 config_platform_db 必须和你 MySQL 中创建的数据库名一致
+    url: jdbc:mysql://localhost:3306/config_platform_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password:   # 替换为你自己的 MySQL 密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 开启驼峰命名
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted # 逻辑删除字段名
+      logic-delete-value: 1
+      logic-not-delete-value: 0
